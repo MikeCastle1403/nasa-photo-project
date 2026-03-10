@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='vite.svg') }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Explora el universo con la Imagen Astronómica del Día de la NASA. Disfruta de una galería con temática espacial de imágenes y videos astronómicos diarios." />
+  <title>Archivo APOD de la NASA</title>
+  <link rel="preconnect" href="https://api.nasa.gov">
+  <!-- We will use a modern space-themed font like 'Outfit' -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
+
+  <nav id="navbar">
+    <div class="nav-brand">
+      <h1>NASA APOD</h1>
+    </div>
+    <div class="nav-controls">
+      <button id="btn-prev" class="nav-btn" aria-label="Día Anterior" title="Día Anterior">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      </button>
+      <div class="date-picker-wrapper">
+        <input type="date" id="date-picker" min="1995-06-16" max="">
+      </div>
+      <button id="btn-next" class="nav-btn" aria-label="Día Siguiente" title="Día Siguiente">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      </button>
+      <button id="btn-today" class="nav-btn btn-primary">Hoy</button>
+    </div>
+  </nav>
+
+  <main id="app-content">
+    <header id="hero" class="loading">
+      <div class="loader"></div>
+      <div id="media-container">
+        <!-- Image or iframe will be injected here -->
+      </div>
+      <div class="hero-overlay">
+        <h2 id="apod-title">Título Aquí</h2>
+        <p id="apod-date">Fecha Aquí</p>
+      </div>
+    </header>
+
+    <section id="details">
+      <div class="explanation-container">
+        <p id="apod-explanation">La explicación aparecerá aquí...</p>
+        <div class="links-container">
+          <a id="hd-link" href="#" target="_blank" rel="noopener noreferrer" class="link-btn hidden">
+            Ver en Alta Resolución
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" x2="21" y1="14" y2="3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery-section">
+      <h3>Últimos 7 Días</h3>
+      <div id="gallery-grid" class="gallery-grid">
+        <!-- Gallery items injected here -->
+      </div>
+    </section>
+  </main>
+
+  <script>
+    window.NASA_KEY = "{{ nasa_key }}";
+  </script>
+  <script type="module" src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>
