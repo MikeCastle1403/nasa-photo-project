@@ -14,7 +14,6 @@ Explora las maravillas del universo con esta aplicación web diseñada para cons
 
 - **Backend**: Python con [Flask](https://flask.palletsprojects.com/)
 - **Frontend**: JavaScript (ES6+), HTML5 Semántico y CSS3 personalizado.
-- **Herramientas de Construcción**: [Vite](https://vitejs.dev/) para la gestión de assets.
 - **API**: [NASA Planetary APOD API](https://api.nasa.gov/).
 
 ## 📋 Requisitos Previos
@@ -42,7 +41,6 @@ Explora las maravillas del universo con esta aplicación web diseñada para cons
 3. **Instalar dependencias**:
    ```bash
    pip install -r requirements.txt
-   npm install
    ```
 
 4. **Variables de Entorno**:
@@ -53,18 +51,12 @@ Explora las maravillas del universo con esta aplicación web diseñada para cons
 
 ## 🏃 Ejecución
 
-### Modo Desarrollo (Flask)
-Para ejecutar el servidor de backend:
+### Ejecución (Flask)
+Para ejecutar el servidor:
 ```bash
 python app.py
 ```
 La aplicación estará disponible en `http://127.0.0.1:5000`.
-
-### Modo Desarrollo (Vite Assets)
-Si deseas realizar cambios en el CSS o JS con recarga en caliente:
-```bash
-npm run dev
-```
 
 ---
 *Desarrollado con ❤️ para los entusiastas del espacio.*
